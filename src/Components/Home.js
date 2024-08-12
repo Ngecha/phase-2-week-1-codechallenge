@@ -23,7 +23,7 @@ function Home() {
   //Delete function
   async function handleDeleteTransaction(transactionId) {
     try {
-      await fetch(`http://localhost:3000//transactions/${transactionId}`, {
+      await fetch(`http://localhost:3000/transactions/${transactionId}`, {
         method: 'DELETE',
       });
 

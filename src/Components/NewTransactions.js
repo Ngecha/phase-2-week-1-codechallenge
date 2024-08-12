@@ -7,7 +7,7 @@ function NewTransactions() {
         date:"",
         description:"",
         category:"",
-        amount:""
+        amount:"",
     })
     // Logs the data written on the Search bar
        const handleChange = (e) => {
@@ -34,7 +34,8 @@ function NewTransactions() {
                 date: data.date,
                 description: data.description,
                 category: data.category,
-                amount: data.amount
+                amount: data.amount,
+                id:data.id++
             });
             window.location.reload() /// Auto-reloads the window to display the new transaction
         })
