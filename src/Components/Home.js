@@ -15,7 +15,6 @@ function Home() {
         console.log(data);
         setAllTransactions(data);
       })
-      .catch(error => console.error(error));
   }, [searchQuery]);
 
   //search function
