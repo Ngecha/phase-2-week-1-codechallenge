@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-function TransactionList({ transactions, onDeleteTransaction }) {
+function TransactionList({ transactions, search, onDeleteTransaction }) {
   return (
     <div className="transaction-list">
       <h2>Transaction List</h2>
@@ -15,19 +15,25 @@ function TransactionList({ transactions, onDeleteTransaction }) {
           </tr>
         </thead>
         <tbody>
-          {transactions.map(transaction => (
-            <tr key={transaction.id} className="transaction-item">
-              <td>{transaction.date}</td>
-              <td>{transaction.description}</td>
-              <td>{transaction.category}</td>
-              <td>{transaction.amount}</td>
-              <td>
-                <button onClick={() => onDeleteTransaction(transaction.id)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+          {transactions
+            .filter((transaction) => {
+              return search.toLowerCase() === ""
+                ? transaction
+                : transaction.description.toLowerCase().includes(search);
+            })
+            .map((transaction) => (
+              <tr key={transaction.id} className="transaction-item">
+                <td>{transaction.date}</td>
+                <td>{transaction.description}</td>
+                <td>{transaction.category}</td>
+                <td>{transaction.amount}</td>
+                <td>
+                  <button onClick={() => onDeleteTransaction(transaction.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

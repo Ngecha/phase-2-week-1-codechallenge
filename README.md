@@ -13,6 +13,7 @@ Use <a href = https://phase-2-week-1-codechallenge-lemon.vercel.app>this link</a
 <li>You can also fork and clone this repository <strong>https://github.com/Ngecha/phase-2-week-1-codechallenge</strong> in to your computer </li>
  <li>Open the project-folder using VS code.
 <li>Then run npm start in your terminal to open the react app in your browser</li>
+<li><b>Ensure the db.json server is running</b></li>
 
 ## Core Deliverables
 As a user, I should be able to:

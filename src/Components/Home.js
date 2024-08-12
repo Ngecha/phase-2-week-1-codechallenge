@@ -1,41 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import NewTransactions from './NewTransactions';
-import TransactionList from './TransactionList';
-
+import React, { useState, useEffect } from "react";
+import NewTransactions from "./NewTransactions";
+import TransactionList from "./TransactionList";
 
 function Home() {
   // UseState
   const [allTransactions, setAllTransactions] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-// use Effect
+  const [search, onSearch] = useState("")
+  console.log(search);
+  // use Effect
   useEffect(() => {
-    fetch(`http://localhost:3000/transactions?q=${searchQuery}`) //Searching, (not yet working)
-      .then(response => response.json())
-      .then(data => {
+    fetch(`http://localhost:3000/transactions`)
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data);
         setAllTransactions(data);
       })
-  }, [searchQuery]);
+      
+      .catch((error) => console.error(error));
+  }, []);
 
-  //search function
-  function handleSearch(e) {
-    setSearchQuery(e.target.value);
+
+  //Delete function
+  async function handleDeleteTransaction(transactionId) {
+    try {
+      await fetch(`http://localhost:3000//transactions/${transactionId}`, {
+        method: 'DELETE',
+      });
+
+      setAllTransactions(prevTransactions =>
+        prevTransactions.filter(transaction => transaction.id !== transactionId)
+      );
+    } catch (error) {
+      console.error('Error deleting transaction:', error);
+    }
   }
 
-//Delete function
-  function handleDeleteTransaction(transactionId) {
-       fetch(`http://localhost:3000/transactions${transactionId}`, {
-        method: 'DELETE',
-      })
-      .then((r)=>r.json())
-      .then(()=>
-        setAllTransactions(prevTransactions =>
-        prevTransactions.filter(transaction => transaction.id !== transactionId))
-      );
-    } 
-    
-  
-//the Html for the search bar
+
+  //the Html for the search bar
   return (
     <div>
       <h1 className="welcome-header">Welcome to The Bank of Flatiron</h1>
@@ -44,13 +45,14 @@ function Home() {
           id="input"
           type="text"
           placeholder="Search ...."
-          onChange={handleSearch}
+          onChange={(e)=>onSearch(e.target.value)}
         />
-        <button id="searchButton">Search</button>
+
       </div>
       <TransactionList
-        transactions={allTransactions}  //Props 
+        transactions={allTransactions} //Props
         onDeleteTransaction={handleDeleteTransaction}
+        search={search}
       />
       <NewTransactions />
     </div>

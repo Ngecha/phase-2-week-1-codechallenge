@@ -97,6 +97,20 @@
       "category": "Food",
       "amount": "3000",
       "id": "14"
+    },
+    {
+      "id": "31c9",
+      "date": "2024-08-11",
+      "description": "Fare",
+      "category": "Transportation",
+      "amount": "1000"
+    },
+    {
+      "id": "3149",
+      "date": "2024-08-11",
+      "description": "Transport",
+      "category": "Transportation",
+      "amount": "1000"
     }
   ]
 }
