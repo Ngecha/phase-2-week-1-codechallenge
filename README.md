@@ -19,55 +19,7 @@ As a user, I should be able to:
 <li>
 See a table of the transactions.<br></li>
 <li>Fill out and submit the form to add a new transaction. This should add the new transaction to the table as well as post the new transaction to the backend API for persistence. <br></li>
-<li>Filter transactions by typing into the search bar. Only transactions with a description matching the search term should be shown in the transactions table.<br></li>
-
-## Endpoints for Core Deliverables
-<li>GET /transactions<br>
-Example Response:<br>
-`
-[
-  {
-    "id": 1,
-    "date": "2019-12-01",
-    "description": "Paycheck from Bob's Burgers",
-    "category": "Income",
-    "amount": 1000
-  },<br>
-  {
-    "id": 2,
-    "date": "2019-12-01",
-    "description": "South by Southwest Quinoa Bowl at Fresh & Co",
-    "category": "Food",
-    "amount": -10.55
-  }
-]
-`<br></li>
-<li>
-POST /transactions<br>
-Required Headers:<br>
-`
-{
-  "Content-Type": "application/json"
-}`<br></li>
-<li>
-Request Object:<br>
-`
-{
-  "date": "string",
-  "description": "string",
-  "category": "string",
-  "amount": number
-}`<br></li>
-<li>
-Example Response:<br>
-`
-{
-  "id": 1,
-  "date": "2019-12-01",
-  "description": "Paycheck from Bob's Burgers",
-  "category": "Income",
-  "amount": 1000
-}`</li>
+<li>Filter transactions by typing into the search bar. Only transactions with a description matching the search term should be shown in the transactions table.<br></li>(Pending)
 
 ## LICENSE
  MIT License
