@@ -9,8 +9,8 @@ Part of what this code challenge is testing is your ability to follow given inst
 
 ## Setup 
 
-Use <a href = https://dulcet-vacherin-5f9977.netlify.app>this link</a> to get the deployed site
-<li>You can also fork and clone this repository <strong>git@github.com:robnjunge/bank-of-flatiron.git</strong> in to your computer </li>
+Use <a href = https://phase-2-week-1-codechallenge-lemon.vercel.app>this link</a> to get the deployed site
+<li>You can also fork and clone this repository <strong>https://github.com/Ngecha/phase-2-week-1-codechallenge</strong> in to your computer </li>
  <li>Open the project-folder using VS code.
 <li>Then run npm start in your terminal to open the react app in your browser</li>
 
