@@ -36,7 +36,7 @@ function NewTransactions() {
                 category: data.category,
                 amount: data.amount
             });
-            window.location.reload()
+            window.location.reload() /// Auto-reloads the window to display the new transaction
         })
        
     };
